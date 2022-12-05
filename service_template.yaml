@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2022-12-05T08:42:41Z"
+  labels:
+    app: kdh
+  name: web
+  namespace: default
+  resourceVersion: "33028"
+  uid: b89362e1-9320-47d5-8af0-2e8713e43fd3
+spec:
+  clusterIP: 10.96.151.185
+  clusterIPs:
+  - 10.96.151.185
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 31494
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: kdh
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
