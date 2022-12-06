@@ -1,0 +1,10 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: test-1 
+spec:
+  containers:
+  - image: dhdockerhu/test:html
+    name: test-1
+  nodeSelector:
+    disktype: hdd 
