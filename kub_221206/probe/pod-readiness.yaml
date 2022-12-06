@@ -1,15 +1,21 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod-r
+  name: pod-r-exec
   labels:
     app: readiness
 spec:
   containers:
   - name: test-readiness
-    image: dhdockerhu/test:html2
+    image: rosehs00/test:htmlv2
     ports:
     - containerPort: 80
+    readinessProbe:
+      exec:
+        command: ["cat", "/usr/share/nginx/html/index.html"]
+      initialDelaySeconds: 3
+      periodSeconds: 5
+      successThreshold: 3
     volumeMounts:
     - name: hostpath
       mountPath: /usr/share/nginx/html

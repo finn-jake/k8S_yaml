@@ -1,15 +1,21 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod-r
+  name: pod-live-2
   labels:
-    app: readiness
+    app: liveness
 spec:
   containers:
-  - name: test-readiness
+  - name: test-liveness
     image: dhdockerhu/test:html2
     ports:
     - containerPort: 80
+    livenessProbe:
+      exec:
+        command: ["ls", "/usr/share/nginx/html/health"]
+      initialDelaySeconds: 5
+      periodSeconds: 3
+      failureThreshold: 3
     volumeMounts:
     - name: hostpath
       mountPath: /usr/share/nginx/html
