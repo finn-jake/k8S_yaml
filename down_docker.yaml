@@ -1,8 +1,0 @@
-kind: Pod
-apiVersion: v1
-metadata:
-  name: test 
-spec:
-  containers:
-  - image: dhdockerhu/test:html
-    name: test 
