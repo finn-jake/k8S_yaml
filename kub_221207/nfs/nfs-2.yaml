@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pd2
+spec:
+  containers:
+  - image: nginx
+    name: web-container
+    volumeMounts:
+    - mountPath: /data
+      name: cache-volume
+  volumes:
+  - name: cache-volume
+    nfs:
+      server: master1
+      path: /share/nfs
+  nodeSelector:
+    nfs: node2
