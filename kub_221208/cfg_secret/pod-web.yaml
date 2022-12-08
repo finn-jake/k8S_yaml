@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-pod
+  namespace: default
+spec:
+  containers:
+  - image: dhdockerhu/test:env
+    imagePullPolicy: Always
+    name: c1
+    resources: {}
+    env:
+    - name: CLASS 
+      valueFrom: 
+        configMapKeyRef:
+          name: dev-map
+          key: A 

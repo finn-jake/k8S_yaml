@@ -1,0 +1,13 @@
+# 인증서 정보 확인
+kubectl get cm
+kubectl get cm kube-root-ca.crt -o yaml
+kubectl describe cm kube-root-ca.crt
+
+kubectl create cm dev-map --from-literal=A=10 --from-literal=B=20
+kubectl create configmap dev-map-1 --from-file=f1 --from-file-new=f2
+
+# secrets 정보 확인
+kubectl get secrets -A
+
+# secrets 만들기
+kubectl create secret docker-registry <name> --docker-username=<username> --docker-password=<dockerhub-password>

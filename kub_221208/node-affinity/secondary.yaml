@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: secondary
+spec:
+ affinity:
+  podAntiAffinity:
+   requiredDuringSchedulingIgnoredDuringExecution:   
+   - topologyKey: team
+     labelSelector:
+      matchExpressions:
+      -  {key: role, operator: In, values: [primary]}
+ containers:
+ - name: container
+   image: nginx
+ terminationGracePeriodSeconds: 0
+

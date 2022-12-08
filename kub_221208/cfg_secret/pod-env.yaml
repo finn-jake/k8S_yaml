@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-pod
+  namespace: default
+spec:
+  containers:
+  - image: dhdockerhu/test:env
+    imagePullPolicy: Always
+    name: c1
+    resources: {}
+    env:
+    - name: CLASS
+      value: kdh 
+

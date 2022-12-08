@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: db
+ labels:
+  type: db
+spec:
+ nodeSelector:
+  team: dev
+ containers:
+ - name: container
+   image: nginx
+ terminationGracePeriodSeconds: 0
+

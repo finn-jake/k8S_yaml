@@ -25,3 +25,17 @@ docker push userID/NAME:TAG
 
 adj svc selector
 kubectl set selector svc app(svcName) app=greeb
+
+# 연결 exec
+kubectl exec -it mypod -- /bin/bash
+
+# helm list 삭제 및 install
+helm list / helm repo list
+helm uninstall <helm NAME>
+helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner  --set nfs.server=master1  --set nfs.path=/share
+
+# helm client tool 설치하기
+curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+#helm pkg repo 추가하기
+helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
