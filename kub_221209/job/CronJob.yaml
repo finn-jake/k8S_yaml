@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron-job
+spec:
+  schedule: "*/1 * * * *"   #분,h,d,월,요일
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: job-container
+            image: busybox
+            command: ["/bin/sleep", "15"]
+          terminationGracePeriodSeconds: 0

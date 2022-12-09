@@ -1,0 +1,9 @@
+kubectl get po -o wide -n kube-system
+
+kubectl -n kube-system get cm
+
+kubectl logs -n kube-proxy-5c5sh
+
+kubectl -n kube-system edit cm kube-proxy
+
+kubectl delete po --namespace=kube-system kube-proxy-~~
